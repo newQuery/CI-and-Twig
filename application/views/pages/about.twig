@@ -1,0 +1,9 @@
+{% extends 'mainLayout.twig' %}
+
+{% block content %}
+<h1>This is About Page</h1>
+<p>Example of a loop with twig</p>
+    {% for key, value in randomValues %}
+        {{key}} = {{value}}<br>
+    {% endfor %}
+{% endblock %}
