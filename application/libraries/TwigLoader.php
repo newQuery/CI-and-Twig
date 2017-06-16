@@ -1,4 +1,5 @@
 <?php
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
 *	© newQuery - 2017
 *	@author Thomas Wilmshorst
