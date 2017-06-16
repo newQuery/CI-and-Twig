@@ -6,7 +6,7 @@ class Page extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library('twig');
+		$this->load->library('twigloader');
 	}
 
 	public function about()
@@ -19,7 +19,7 @@ class Page extends CI_Controller {
 			'Key 5' => 'Value 5',
 			'Key 6' => 'Value 6'
 		];
-		$this -> twig -> render('about.twig', ['randomValues' => $tab]);
+		$this -> twigloader -> setTemplateName('about') -> loadFinal();
 	}
 
 	public function view($page = 'home')
@@ -29,10 +29,7 @@ class Page extends CI_Controller {
             // Whoops, we don't have a page for that!
             show_404();
         }
-
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-
-        $this -> twig -> render($page.'.twig');
+		#var_dump($this -> twigloader);
+		$this -> twigloader -> setTemplateName('home') -> setTitle('HOME') -> loadFinal();
 	}
 }
